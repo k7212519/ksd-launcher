@@ -10,7 +10,7 @@ import webbrowser
 import threading
 import configparser
 
-
+# pyside6-rcc resources.qrc -o resources_rc.py
 
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QApplication, QMessageBox
