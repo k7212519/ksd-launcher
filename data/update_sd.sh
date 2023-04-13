@@ -17,6 +17,7 @@ address=$(python3 -c "import configparser; config = configparser.ConfigParser();
 
 # 判断proxy的值
 if [[ "$proxy" == "true" ]]; then
+    echo -e "通过代理地址更新...\n"
     export https_proxy="$address"
 fi
 
