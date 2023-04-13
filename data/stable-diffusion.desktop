@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Stable Diffusion
+Exec=/usr/lib/ksd-launcher/data/start.sh
+Comment=
+Terminal=false
+Icon=/usr/lib/ksd-launcher/data/sd.png
+Type=Application
