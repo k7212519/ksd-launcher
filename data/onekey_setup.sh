@@ -17,18 +17,20 @@ write_start_command() {
     pre_args=' $proxy_command HSA_OVERRIDE_GFX_VERSION=10.3.0 '
     args='--precision full --no-half'
   elif [ $1 -eq 4 ]; then  
-    pre_args='$proxy_command HSA_OVERRIDE_GFX_VERSION=9.0.0 '
-    args='--precision full --no-half'
+    pre_args='$proxy_command PYTORCH_ROCM_ARCH=gfx906 HCC_AMDGPU_TARGET=gfx906 '
+    # args='--precision full --no-half'
   elif [ $1 -eq 5 ]; then  
-    echo 'rx500未支持'
+    echo 'rx500暂未支持，请关注bilibili/k7212519更新或github仓库更新'
   fi
 
   if [ $2 -eq 1 ]; then  
-    echo 'default vram'
+    echo -e "\n默认显存模式运行"
   elif [ $2 -eq 2 ]; then  
-    args="$args --medvram "
+    echo -e "\n显存优化模式运行"
+    args="$args --opt-sub-quad-attention "
   elif [ $2 -eq 3 ]; then  
-    args="$args --lowvram "
+    echo -e "\n低显存模式运行"
+    args="$args --opt-sub-quad-attention --lowvram "
   fi
 
   COMMAND_ARG=$COMMAND_ARG'"'$active_env$pre_args$start$args'"'
