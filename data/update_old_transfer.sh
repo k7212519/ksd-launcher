@@ -37,7 +37,7 @@ fi
 echo -e "\n准备移除旧文件..."
 sudo rm -rf $HOME/dockerx
 sudo rm -rf /usr/share/stable-diffusion
-sudo rm $HOME/.local/share/applications/stable-diffusion.desktop
+sudo rm -f $HOME/.local/share/applications/stable-diffusion.desktop
 sudo rm /usr/share/icons/sd.png
 echo -e "\n已移除"
 sleep 2s

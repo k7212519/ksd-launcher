@@ -77,6 +77,8 @@ class MainWindow(QMainWindow):
         widgets.btn_root_file.clicked.connect(self.buttonClick)
         widgets.btn_start_args.clicked.connect(self.buttonClick)
         widgets.btn_output_manage.clicked.connect(self.buttonClick)
+        widgets.btn_stop_container.clicked.connect(self.buttonClick)
+
 
         #page_manage
         widgets.btn_graphic_install.clicked.connect(self.buttonClick)
@@ -179,10 +181,17 @@ class MainWindow(QMainWindow):
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
             #os.system('/usr/lib/ksd-launcher/data/sd.sh')
             # 一键启动
-
             subprocess.run(['gnome-terminal', '-x', '/bin/bash', '-c', '/usr/lib/ksd-launcher/data/sd.sh'])
             thread = threading.Thread(target=lambda: (time.sleep(8), webbrowser.open('http://127.0.0.1:7860/')))
             thread.start()
+
+        elif btnName == "btn_stop_container":
+            UIFunctions.resetStyle(self, btnName) 
+            btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) 
+            # 停止 Docker 容器
+            self.stopContainer()
+         
+
     
         elif btnName == "btn_onekey_install":
             UIFunctions.resetStyle(self, btnName) 
@@ -303,10 +312,64 @@ class MainWindow(QMainWindow):
         if event.buttons() == Qt.RightButton:
             print('Mouse click: RIGHT CLICK')
 
-    
+    # 停止容器
+    def stopContainer(self):
+        try:
+            # 检查容器是否在运行
+            output = subprocess.check_output(['docker', 'inspect', '-f', '{{.State.Running}}', 'stable-diffusion'])
+            # 如果容器正在运行
+            if output.decode().strip() == 'true':
+                # 停止容器
+                stop_process = subprocess.Popen('docker stop stable-diffusion', shell=True)
+                # 显示提示信息
+                msg_box = QMessageBox()
+                msg_box.setWindowTitle("提示")
+                msg_box.setText("正在关闭 stable-diffusion...")
+                msg_box.show()
+                # 等待停止命令执行完毕
+                stop_process.wait()
+                # 判断容器是否成功停止
+                if stop_process.returncode == 0:
+                    # 显示关闭成功的提示信息
+                    msg_box.setText("关闭成功")
+                    msg_box.setStandardButtons(QMessageBox.Ok)
+                    msg_box.exec()
+                else:
+                    # 显示关闭失败的提示信息，并执行强制关闭命令
+                    msg_box.setText("关闭失败，正在执行强制关闭...")
+                    msg_box.setStandardButtons(QMessageBox.Ok)
+                    msg_box.exec()
+                    force_stop_process = subprocess.Popen('docker stop -f stable-diffusion', shell=True)
+                    force_stop_process.wait()
+                    # 再次检查容器是否成功停止
+                    if force_stop_process.returncode == 0:
+                        # 显示关闭成功的提示信息
+                        msg_box.setText("关闭成功")
+                        msg_box.setStandardButtons(QMessageBox.Ok)
+                        msg_box.exec()
+                    else:
+                        # 显示关闭失败的提示信息
+                        msg_box.setText("强制关闭失败，请手动关闭容器")
+                        msg_box.setStandardButtons(QMessageBox.Ok)
+                        msg_box.exec()
+            else:
+                # 显示容器已经关闭的提示信息
+                msg_box = QMessageBox()
+                msg_box.setWindowTitle("提示")
+                msg_box.setText("容器已经关闭")
+                msg_box.setStandardButtons(QMessageBox.Ok)
+                msg_box.exec()
+        except subprocess.CalledProcessError:
+            # 显示容器未运行的提示信息
+            msg_box = QMessageBox()
+            msg_box.setWindowTitle("提示")
+            msg_box.setText("容器未运行")
+            msg_box.setStandardButtons(QMessageBox.Ok)
+            msg_box.exec()
+                
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     app.setWindowIcon(QIcon("icon.ico"))
     window = MainWindow()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())

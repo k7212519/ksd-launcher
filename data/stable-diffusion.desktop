@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=KSD launcher
+Name=Stable Diffusion
 Exec=/usr/lib/ksd-launcher/data/start.sh
 Comment=
 Terminal=false

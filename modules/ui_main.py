@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainJeYfTg.ui'
+## Form generated from reading UI file 'mainKUKZwy.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.4
 ##
@@ -1053,16 +1053,36 @@ class Ui_MainWindow(object):
 
         self.label_2 = QLabel(self.home)
         self.label_2.setObjectName(u"label_2")
+        self.label_2.setMaximumSize(QSize(16777215, 15))
         self.label_2.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_21.addWidget(self.label_2)
 
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.horizontalLayout_16 = QHBoxLayout()
+        self.horizontalLayout_16.setObjectName(u"horizontalLayout_16")
+        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.verticalLayout_21.addItem(self.verticalSpacer)
+        self.horizontalLayout_16.addItem(self.horizontalSpacer_3)
+
+        self.btn_stop_container = QPushButton(self.home)
+        self.btn_stop_container.setObjectName(u"btn_stop_container")
+        self.btn_stop_container.setMinimumSize(QSize(200, 0))
+
+        self.horizontalLayout_16.addWidget(self.btn_stop_container)
+
+        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_16.addItem(self.horizontalSpacer_4)
+
+
+        self.verticalLayout_21.addLayout(self.horizontalLayout_16)
 
 
         self.verticalLayout_22.addLayout(self.verticalLayout_21)
+
+        self.verticalSpacer = QSpacerItem(20, 20, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_22.addItem(self.verticalSpacer)
 
         self.horizontalLayout_6 = QHBoxLayout()
         self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
@@ -1771,7 +1791,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1822,7 +1842,8 @@ class Ui_MainWindow(object):
 #endif // QT_CONFIG(tooltip)
         self.closeAppBtn.setText("")
         self.btn_start_sd.setText("")
-        self.label_2.setText(QCoreApplication.translate("MainWindow", u"\u542f\u52a8 WEBUI", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u" WEBUI", None))
+        self.btn_stop_container.setText(QCoreApplication.translate("MainWindow", u"\u505c\u6b62\u8fd0\u884c", None))
         self.btn_onekey_install.setText(QCoreApplication.translate("MainWindow", u"\u4e00\u952e\u5b89\u88c5", None))
         self.btn_root_file.setText(QCoreApplication.translate("MainWindow", u"\u6a21\u578b\u7ba1\u7406", None))
         self.btn_output_manage.setText(QCoreApplication.translate("MainWindow", u"\u8f93\u51fa\u76ee\u5f55", None))
