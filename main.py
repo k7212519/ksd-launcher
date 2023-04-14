@@ -89,6 +89,7 @@ class MainWindow(QMainWindow):
         widgets.btn_update_sd.clicked.connect(self.buttonClick)
         widgets.btn_update_launch.clicked.connect(self.buttonClick)
         widgets.btn_install_git.clicked.connect(self.buttonClick)
+        widgets.btn_old_transfer.clicked.connect(self.buttonClick)
 
 
 
@@ -273,6 +274,11 @@ class MainWindow(QMainWindow):
             UIFunctions.resetStyle(self, btnName) 
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) 
             subprocess.run(['gnome-terminal', '-x', '/bin/bash', '-c', 'sudo apt-get update && sudo apt install git && echo "安装完成" && read'])
+
+        elif btnName == "btn_old_transfer":
+            UIFunctions.resetStyle(self, btnName) 
+            btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) 
+            subprocess.run(['gnome-terminal', '-x', '/bin/bash', '-c', '/usr/lib/ksd-launcher/data/update_old_transfer.sh'])
 
 
         # PRINT BTN NAME

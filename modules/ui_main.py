@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'maintfwAlP.ui'
+## Form generated from reading UI file 'mainJeYfTg.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.4
 ##
@@ -1201,6 +1201,8 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_28.addItem(self.verticalSpacer_4)
 
+        self.horizontalLayout_7 = QHBoxLayout()
+        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
         self.btn_update_launch = QPushButton(self.page_update)
         self.btn_update_launch.setObjectName(u"btn_update_launch")
         sizePolicy6 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
@@ -1210,7 +1212,20 @@ class Ui_MainWindow(object):
         self.btn_update_launch.setSizePolicy(sizePolicy6)
         self.btn_update_launch.setMinimumSize(QSize(0, 50))
 
-        self.verticalLayout_28.addWidget(self.btn_update_launch)
+        self.horizontalLayout_7.addWidget(self.btn_update_launch)
+
+        self.btn_old_transfer = QPushButton(self.page_update)
+        self.btn_old_transfer.setObjectName(u"btn_old_transfer")
+        sizePolicy7 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Expanding)
+        sizePolicy7.setHorizontalStretch(0)
+        sizePolicy7.setVerticalStretch(0)
+        sizePolicy7.setHeightForWidth(self.btn_old_transfer.sizePolicy().hasHeightForWidth())
+        self.btn_old_transfer.setSizePolicy(sizePolicy7)
+
+        self.horizontalLayout_7.addWidget(self.btn_old_transfer)
+
+
+        self.verticalLayout_28.addLayout(self.horizontalLayout_7)
 
         self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
@@ -1499,11 +1514,11 @@ class Ui_MainWindow(object):
         __qtablewidgetitem23 = QTableWidgetItem()
         self.tableWidget.setItem(0, 3, __qtablewidgetitem23)
         self.tableWidget.setObjectName(u"tableWidget")
-        sizePolicy7 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        sizePolicy7.setHorizontalStretch(0)
-        sizePolicy7.setVerticalStretch(0)
-        sizePolicy7.setHeightForWidth(self.tableWidget.sizePolicy().hasHeightForWidth())
-        self.tableWidget.setSizePolicy(sizePolicy7)
+        sizePolicy8 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy8.setHorizontalStretch(0)
+        sizePolicy8.setVerticalStretch(0)
+        sizePolicy8.setHeightForWidth(self.tableWidget.sizePolicy().hasHeightForWidth())
+        self.tableWidget.setSizePolicy(sizePolicy8)
         palette2 = QPalette()
         palette2.setBrush(QPalette.Active, QPalette.WindowText, brush)
         palette2.setBrush(QPalette.Active, QPalette.Button, brush1)
@@ -1756,7 +1771,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1816,6 +1831,7 @@ class Ui_MainWindow(object):
         self.btn_update_sd.setText(QCoreApplication.translate("MainWindow", u"\u4e00\u952e\u66f4\u65b0stable-diffusion-webui", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"\u4e0d\u4fdd\u8bc1\u6700\u65b0\u7248\u672c\u53ef\u7528\uff0c\u5982\u66f4\u65b0\u540e\u65e0\u6cd5\u8fd0\u884c\uff0c\u8bf7\u4f7f\u7528\u4e00\u952e\u8fd8\u539f\u529f\u80fd", None))
         self.btn_update_launch.setText(QCoreApplication.translate("MainWindow", u"\u66f4\u65b0\u542f\u52a8\u5668", None))
+        self.btn_old_transfer.setText(QCoreApplication.translate("MainWindow", u"\u65e7\u7248\u811a\u672c\u7528\u6237\u8fc1\u79fb", None))
         self.textBrowser.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
