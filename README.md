@@ -3,7 +3,7 @@
 
 视频教程：  
 
-项目地址：  
+项目地址：https://github.com/k7212519/ksd-launcher
 
 镜像下载地址：https://cloud.189.cn/t/FfeEzybQNfYj (访问码：`5cp6`) 
 
