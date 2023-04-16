@@ -27,7 +27,7 @@ write_start_command() {
     echo -e "\n默认显存模式运行"
   elif [ $2 -eq 2 ]; then  
     echo -e "\n显存优化模式运行"
-    args="$args --opt-sub-quad-attention "
+    args="$args --opt-sub-quad-attention --medvram "
   elif [ $2 -eq 3 ]; then  
     echo -e "\n低显存模式运行"
     args="$args --opt-sub-quad-attention --lowvram "
