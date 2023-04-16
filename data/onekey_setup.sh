@@ -108,7 +108,7 @@ setup_sd() {
       echo "3. 5000 系列"
       echo "4. Vega 系列"
       echo "5. 500 系列"
-      echo "6. 7900 系列"
+      echo "6. 7900 系列（测试）"
       read -p "请输入选项编号： " choice
       case $choice in
       1)
