@@ -21,6 +21,9 @@ write_start_command() {
     # args='--precision full --no-half'
   elif [ $1 -eq 5 ]; then  
     echo 'rx500暂未支持，请关注bilibili/k7212519更新或github仓库更新'
+  elif [ $1 -eq 6 ]; then  
+    start='python3 launch.py --disable-safe-unpickle'
+    pre_args=' $proxy_command '
   fi
 
   if [ $2 -eq 1 ]; then  
@@ -101,10 +104,11 @@ setup_sd() {
     do
       echo "请选择您的显卡型号："
       echo "1. 6900 6800 系列"
-      echo "2. 6700 6600 6500系列"
+      echo "2. 6700 6600 系列"
       echo "3. 5000 系列"
       echo "4. Vega 系列"
       echo "5. 500 系列"
+      echo "6. 7900 系列"
       read -p "请输入选项编号： " choice
       case $choice in
       1)
@@ -131,6 +135,11 @@ setup_sd() {
         echo "您选择了 rx500 系列"
         valid_choice=true
         gpu_choice=5
+        ;;
+      6)
+        echo "您选择了 rx7900 系列"
+        valid_choice=true
+        gpu_choice=6
         ;;
       *)
         echo "无效的选项编号，请重新输入。"
@@ -174,6 +183,8 @@ setup_sd() {
     WEBUI_DOCKER_NAME=k7212519/stable-diffusion-webui:latest  #rxVega
   elif [ $gpu_choice -eq 5 ]; then  
     WEBUI_DOCKER_NAME=k7212519/stable-diffusion-webui:rx500   #rx500
+  elif [ $gpu_choice -eq 6 ]; then  
+    WEBUI_DOCKER_NAME=k7212519/stable-diffusion-webui:rx7000   #rx7000
   fi
 
     # Check if the Docker image exists

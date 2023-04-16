@@ -17,4 +17,5 @@ docker restart stable-diffusion
 # 运行参数加在下方命令最后的 " 前，记得 --参数 前加个空格
 
 
-docker exec -it stable-diffusion bash -c "cd /dockerx/stable-diffusion-webui && source venv/bin/activate && $proxy_command python launch.py"
+
+docker exec -it stable-diffusion bash -c "cd /dockerx/stable-diffusion-webui && source venv/bin/activate && $proxy_command python3 launch.py --disable-safe-unpickle "
