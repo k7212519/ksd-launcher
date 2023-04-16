@@ -246,8 +246,11 @@ class MainWindow(QMainWindow):
             UIFunctions.resetStyle(self, btnName) 
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) 
             env = os.environ.copy()
-            env['PATH'] = '/usr/local/bin:' + env['PATH'] # 修改PATH变量
+            subprocess.run(['gnome-terminal', '-x', '/bin/bash', '-c', 'sudo chmod -R 777 /usr/lib/ksd-launcher && sudo find /usr/lib/ksd-launcher/data -type f -exec chmod +x {} && read '])
+            # 在GNOME终端中启动脚本
+            QMessageBox.information(self, "提示", "请在终端输入密码后，再点击Yes继续还原操作！", QMessageBox.Yes)
             subprocess.run(['gnome-terminal', '-x', '/bin/bash', '-c', '/usr/lib/ksd-launcher/data/onekey_setup.sh'])
+
 
         elif btnName == "btn_proxy_set":
             UIFunctions.resetStyle(self, btnName) 
@@ -261,8 +264,7 @@ class MainWindow(QMainWindow):
         elif btnName == "btn_permission_repair":
             UIFunctions.resetStyle(self, btnName) 
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) 
-            subprocess.run(['gnome-terminal', '-x', '/bin/bash', '-c', 'echo "准备修复权限..." && sudo chmod -R 777  ~/dockerx && echo "已修复" && read '])
-
+            subprocess.run(['gnome-terminal', '-x', '/bin/bash', '-c', 'echo "准备修复权限..." && sudo chmod -R 777  ~/dockerx && echo "已修复" && sudo find /usr/lib/ksd-launcher/data -type f -exec chmod +x {} && read '])
 
         #########Page Update###########
         elif btnName == "btn_update_sd":
