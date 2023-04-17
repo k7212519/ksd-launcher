@@ -263,12 +263,18 @@ onekey_setup() {
   sleep 2s
   echo -e "\n检测到显卡驱动已经安装，跳过此步骤！" 
   # 检测 rocm-smi 命令输出
-  # if rocm-smi | grep -q "Mhz"; then 
-  #   echo -e "\n检测到显卡驱动已经安装，跳过此步骤！" 
-  #   sleep 2s
-  # else
-  #   /usr/lib/ksd-launcher/data/graphic_setup.sh
-  # fi 
+  if rocm-smi | grep -q "Mhz"; then 
+    echo -e "\n检测到显卡驱动已经安装，跳过此步骤！" 
+    sleep 2s
+  else
+    read -p "检测到显卡驱动未安装完整，是否要完整安装(5000及6000系列可跳过，7000系列必须安装),(Y安装/N跳过)？" choice
+    if [ "$choice" == "Y" ] || [ "$choice" == "y" ]; then
+        /usr/lib/ksd-launcher/data/graphic_setup.sh
+    else
+        echo -e "\n已选择跳过显卡驱动安装！"
+        sleep 2s
+    fi
+  fi 
 
   # 判断docker是否安装成功
   if [[ $(which docker) && $(docker --version) ]]; then

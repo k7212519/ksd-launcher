@@ -310,16 +310,32 @@ class MainWindow(QMainWindow):
         UIFunctions.resize_grips(self)
 
     # MOUSE CLICK EVENTS
-    # ///////////////////////////////////////////////////////////////
-    def mousePressEvent(self, event):
-        # SET DRAG POS WINDOW
-        self.dragPos = event.globalPos()
+    # # ///////////////////////////////////////////////////////////////
+    # def mousePressEvent(self, event):
+    #     # SET DRAG POS WINDOW
+    #     self.dragPos = event.globalPos()
 
-        # PRINT MOUSE EVENTS
-        if event.buttons() == Qt.LeftButton:
-            print('Mouse click: LEFT CLICK')
-        if event.buttons() == Qt.RightButton:
-            print('Mouse click: RIGHT CLICK')
+    #     # PRINT MOUSE EVENTS
+    #     if event.buttons() == Qt.LeftButton:
+    #         print('Mouse click: LEFT CLICK')
+    #     if event.buttons() == Qt.RightButton:
+    #         print('Mouse click: RIGHT CLICK')
+
+
+    def mousePressEvent(self, event):        #鼠标左键按下时获取鼠标坐标
+        if event.button() == Qt.LeftButton:
+            self._move_drag = True
+            self.m_Position = event.globalPos() - self.pos()
+            event.accept()
+    def mouseMoveEvent(self, QMouseEvent):    #鼠标在按下左键的情况下移动时,根据坐标移动界面
+        if Qt.LeftButton and self._move_drag:
+            self.move(QMouseEvent.globalPos() - self.m_Position)
+            QMouseEvent.accept()
+    
+    def mouseReleaseEvent(self, QMouseEvent):    #鼠标按键释放时,取消移动
+        self._move_drag = False
+    
+
 
     # 停止容器
     def stopContainer(self):
@@ -388,20 +404,6 @@ class MainWindow(QMainWindow):
 
 
 
-#   --------------------------------------------------移动功能-------------------------------------------------
- 
-def mousePressEvent(self, event):        #鼠标左键按下时获取鼠标坐标
-    if event.button() == Qt.LeftButton:
-        self._move_drag = True
-        self.m_Position = event.globalPos() - self.pos()
-        event.accept()
-def mouseMoveEvent(self, QMouseEvent):    #鼠标在按下左键的情况下移动时,根据坐标移动界面
-        if Qt.LeftButton and self._move_drag:
-            self.move(QMouseEvent.globalPos() - self.m_Position)
-            QMouseEvent.accept()
-    
-def mouseReleaseEvent(self, QMouseEvent):    #鼠标按键释放时,取消移动
-    self._move_drag = False
 
 
 
