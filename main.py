@@ -82,7 +82,7 @@ class MainWindow(QMainWindow):
 
         #page_manage
         widgets.btn_graphic_install.clicked.connect(self.buttonClick)
-        widgets.btn_docker_install.clicked.connect(self.buttonClick)
+        widgets.btn_start_fix.clicked.connect(self.buttonClick)
         widgets.btn_onekey_restore.clicked.connect(self.buttonClick)
         widgets.btn_proxy_set.clicked.connect(self.buttonClick)
         widgets.btn_permission_repair.clicked.connect(self.buttonClick)
@@ -92,6 +92,10 @@ class MainWindow(QMainWindow):
         widgets.btn_update_launch.clicked.connect(self.buttonClick)
         widgets.btn_install_git.clicked.connect(self.buttonClick)
         widgets.btn_old_transfer.clicked.connect(self.buttonClick)
+
+
+        #other widget
+        widgets.c_box_launcher_browser.currentIndexChanged[int].connect(self.start_browser_config)
 
 
 
@@ -182,15 +186,16 @@ class MainWindow(QMainWindow):
             #os.system('/usr/lib/ksd-launcher/data/sd.sh')
             # 一键启动
             subprocess.run(['gnome-terminal', '-x', '/bin/bash', '-c', '/usr/lib/ksd-launcher/data/sd.sh'])
-            thread = threading.Thread(target=lambda: (time.sleep(8), webbrowser.open('http://127.0.0.1:7860/')))
-            thread.start()
+            autoLaunch = config['CONF']['auto_launch']
+            if autoLaunch == "true":
+                thread = threading.Thread(target=lambda: (time.sleep(8), webbrowser.open('http://127.0.0.1:7860/')))
+                thread.start()
 
         elif btnName == "btn_stop_container":
             UIFunctions.resetStyle(self, btnName) 
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) 
             # 停止 Docker 容器
             self.stopContainer()
-         
 
     
         elif btnName == "btn_onekey_install":
@@ -235,12 +240,14 @@ class MainWindow(QMainWindow):
             # 在GNOME终端中启动脚本
             subprocess.run(['gnome-terminal', '-x', '/bin/bash', '-c', '/usr/lib/ksd-launcher/data/graphic_setup.sh'])
 
-        elif btnName == "btn_docker_install":
+        elif btnName == "btn_start_fix":
             UIFunctions.resetStyle(self, btnName) 
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) 
             env = os.environ.copy()
-            env['PATH'] = '/usr/local/bin:' + env['PATH'] # 修改PATH变量
-            subprocess.run(['gnome-terminal', '-x', '/bin/bash', '-c', '/usr/lib/ksd-launcher/data/docker_setup.sh'])
+            subprocess.run(['gnome-terminal', '-x', '/bin/bash', '-c', 'sudo chmod -R 777 /usr/lib/ksd-launcher && sudo find /usr/lib/ksd-launcher/data -type f -exec chmod +x {} && read '])
+            # 在GNOME终端中启动脚本
+            QMessageBox.information(self, "提示", "请在终端输入密码后，再点击Yes继续修复操作！", QMessageBox.Yes)
+            subprocess.run(['gnome-terminal', '-x', '/bin/bash', '-c', '/usr/lib/ksd-launcher/data/onekey_setup.sh'])
 
         elif btnName == "btn_onekey_restore":
             UIFunctions.resetStyle(self, btnName) 
@@ -368,7 +375,35 @@ class MainWindow(QMainWindow):
             msg_box.setText("容器未运行")
             msg_box.setStandardButtons(QMessageBox.Ok)
             msg_box.exec()
-                
+
+
+    # 修改配置是否自动打开浏览器
+    def start_browser_config(self, i):
+        if i == 0:
+            config.set('CONF', 'auto_launch', 'true')
+        elif i == 1:
+            config.set('CONF', 'auto_launch', 'false')
+        with open('/usr/lib/ksd-launcher/data/config.ini', 'w') as f:
+            config.write(f)
+
+
+
+#   --------------------------------------------------移动功能-------------------------------------------------
+ 
+def mousePressEvent(self, event):        #鼠标左键按下时获取鼠标坐标
+    if event.button() == Qt.LeftButton:
+        self._move_drag = True
+        self.m_Position = event.globalPos() - self.pos()
+        event.accept()
+def mouseMoveEvent(self, QMouseEvent):    #鼠标在按下左键的情况下移动时,根据坐标移动界面
+        if Qt.LeftButton and self._move_drag:
+            self.move(QMouseEvent.globalPos() - self.m_Position)
+            QMouseEvent.accept()
+    
+def mouseReleaseEvent(self, QMouseEvent):    #鼠标按键释放时,取消移动
+    self._move_drag = False
+
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

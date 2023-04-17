@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainKUKZwy.ui'
+## Form generated from reading UI file 'mainOyuvaK.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.4
 ##
@@ -1602,6 +1602,8 @@ class Ui_MainWindow(object):
         self.page_manage.setObjectName(u"page_manage")
         self.verticalLayout_20 = QVBoxLayout(self.page_manage)
         self.verticalLayout_20.setObjectName(u"verticalLayout_20")
+        self.verticalLayout_26 = QVBoxLayout()
+        self.verticalLayout_26.setObjectName(u"verticalLayout_26")
         self.horizontalLayout_13 = QHBoxLayout()
         self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
         self.btn_graphic_install = QPushButton(self.page_manage)
@@ -1612,25 +1614,20 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_13.addWidget(self.btn_graphic_install)
 
-        self.btn_docker_install = QPushButton(self.page_manage)
-        self.btn_docker_install.setObjectName(u"btn_docker_install")
-        self.btn_docker_install.setMaximumSize(QSize(16777215, 80))
+        self.btn_start_fix = QPushButton(self.page_manage)
+        self.btn_start_fix.setObjectName(u"btn_start_fix")
+        self.btn_start_fix.setMaximumSize(QSize(16777215, 80))
 
-        self.horizontalLayout_13.addWidget(self.btn_docker_install)
+        self.horizontalLayout_13.addWidget(self.btn_start_fix)
 
 
-        self.verticalLayout_20.addLayout(self.horizontalLayout_13)
+        self.verticalLayout_26.addLayout(self.horizontalLayout_13)
 
-        self.verticalLayout_26 = QVBoxLayout()
-        self.verticalLayout_26.setObjectName(u"verticalLayout_26")
         self.btn_onekey_restore = QPushButton(self.page_manage)
         self.btn_onekey_restore.setObjectName(u"btn_onekey_restore")
         self.btn_onekey_restore.setMaximumSize(QSize(16777215, 90))
 
         self.verticalLayout_26.addWidget(self.btn_onekey_restore)
-
-
-        self.verticalLayout_20.addLayout(self.verticalLayout_26)
 
         self.horizontalLayout_15 = QHBoxLayout()
         self.horizontalLayout_15.setObjectName(u"horizontalLayout_15")
@@ -1646,8 +1643,50 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_15.addWidget(self.btn_permission_repair)
 
+        self.verticalLayout_24 = QVBoxLayout()
+        self.verticalLayout_24.setObjectName(u"verticalLayout_24")
+        self.label_auto_launcher_browser = QLabel(self.page_manage)
+        self.label_auto_launcher_browser.setObjectName(u"label_auto_launcher_browser")
+        sizePolicy9 = QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Preferred)
+        sizePolicy9.setHorizontalStretch(0)
+        sizePolicy9.setVerticalStretch(0)
+        sizePolicy9.setHeightForWidth(self.label_auto_launcher_browser.sizePolicy().hasHeightForWidth())
+        self.label_auto_launcher_browser.setSizePolicy(sizePolicy9)
+        self.label_auto_launcher_browser.setMinimumSize(QSize(0, 0))
+        self.label_auto_launcher_browser.setMaximumSize(QSize(16777215, 50))
+        self.label_auto_launcher_browser.setLayoutDirection(Qt.LeftToRight)
+        self.label_auto_launcher_browser.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout_20.addLayout(self.horizontalLayout_15)
+        self.verticalLayout_24.addWidget(self.label_auto_launcher_browser, 0, Qt.AlignHCenter|Qt.AlignBottom)
+
+        self.c_box_launcher_browser = QComboBox(self.page_manage)
+        self.c_box_launcher_browser.addItem("")
+        self.c_box_launcher_browser.addItem("")
+        self.c_box_launcher_browser.setObjectName(u"c_box_launcher_browser")
+        sizePolicy10 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Minimum)
+        sizePolicy10.setHorizontalStretch(0)
+        sizePolicy10.setVerticalStretch(0)
+        sizePolicy10.setHeightForWidth(self.c_box_launcher_browser.sizePolicy().hasHeightForWidth())
+        self.c_box_launcher_browser.setSizePolicy(sizePolicy10)
+        self.c_box_launcher_browser.setMinimumSize(QSize(80, 0))
+        self.c_box_launcher_browser.setFont(font)
+        self.c_box_launcher_browser.setLayoutDirection(Qt.LeftToRight)
+        self.c_box_launcher_browser.setAutoFillBackground(False)
+        self.c_box_launcher_browser.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+        self.c_box_launcher_browser.setEditable(False)
+        self.c_box_launcher_browser.setIconSize(QSize(16, 16))
+        self.c_box_launcher_browser.setFrame(True)
+
+        self.verticalLayout_24.addWidget(self.c_box_launcher_browser, 0, Qt.AlignHCenter|Qt.AlignTop)
+
+
+        self.horizontalLayout_15.addLayout(self.verticalLayout_24)
+
+
+        self.verticalLayout_26.addLayout(self.horizontalLayout_15)
+
+
+        self.verticalLayout_20.addLayout(self.verticalLayout_26)
 
         self.stackedWidget.addWidget(self.page_manage)
 
@@ -1791,7 +1830,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(3)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1858,8 +1897,8 @@ class Ui_MainWindow(object):
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Segoe UI'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:700;\">KSD Launcher </span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">version  1.0</p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", None))
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">version  1.1</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">QQ\u7fa4\uff1a240336881</p></body></html>", None))
         self.labelBoxBlenderInstalation.setText(QCoreApplication.translate("MainWindow", u"FILE BOX", None))
         self.lineEdit.setText("")
         self.lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Type here", None))
@@ -1926,15 +1965,20 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem23.setText(QCoreApplication.translate("MainWindow", u"Line", None));
         self.tableWidget.setSortingEnabled(__sortingEnabled)
 
-        self.btn_graphic_install.setText(QCoreApplication.translate("MainWindow", u"1.\u663e\u5361\u9a71\u52a8\u5b89\u88c5", None))
-        self.btn_docker_install.setText(QCoreApplication.translate("MainWindow", u"2.Docker\u5b89\u88c5", None))
+        self.btn_graphic_install.setText(QCoreApplication.translate("MainWindow", u"\u663e\u5361\u5b8c\u6574\u9a71\u52a8\u5b89\u88c5", None))
+        self.btn_start_fix.setText(QCoreApplication.translate("MainWindow", u"sd.sh\u542f\u52a8\u9879\u4fee\u590d", None))
         self.btn_onekey_restore.setText(QCoreApplication.translate("MainWindow", u"\u4e00\u952e\u8fd8\u539f Stable-Diffusion-Webui \u5230\u521d\u59cb\u72b6\u6001", None))
         self.btn_proxy_set.setText(QCoreApplication.translate("MainWindow", u"\u4ee3\u7406\u8bbe\u7f6e", None))
         self.btn_permission_repair.setText(QCoreApplication.translate("MainWindow", u"\u6743\u9650\u4fee\u590d", None))
+        self.label_auto_launcher_browser.setText(QCoreApplication.translate("MainWindow", u"\u81ea\u52a8\u8bbf\u95ee\u9875\u9762", None))
+        self.c_box_launcher_browser.setItemText(0, QCoreApplication.translate("MainWindow", u"\u5f00", None))
+        self.c_box_launcher_browser.setItemText(1, QCoreApplication.translate("MainWindow", u"\u5173", None))
+
+        self.c_box_launcher_browser.setCurrentText(QCoreApplication.translate("MainWindow", u"\u5f00", None))
         self.btn_message.setText(QCoreApplication.translate("MainWindow", u"Message", None))
         self.btn_print.setText(QCoreApplication.translate("MainWindow", u"Print", None))
         self.btn_logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))
         self.creditsLabel.setText(QCoreApplication.translate("MainWindow", u"By:  k7212519", None))
-        self.version.setText(QCoreApplication.translate("MainWindow", u"v1.0", None))
+        self.version.setText(QCoreApplication.translate("MainWindow", u"v1.1", None))
     # retranslateUi
 

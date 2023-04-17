@@ -184,7 +184,7 @@ setup_sd() {
   elif [ $gpu_choice -eq 5 ]; then  
     WEBUI_DOCKER_NAME=k7212519/stable-diffusion-webui:rx500   #rx500
   elif [ $gpu_choice -eq 6 ]; then  
-    WEBUI_DOCKER_NAME=k7212519/stable-diffusion-webui:rx7000   #rx7000
+    WEBUI_DOCKER_NAME=k7212519/stable-diffusion-webui:rx7000  #rx7000
   fi
 
     # Check if the Docker image exists
@@ -259,16 +259,16 @@ onekey_setup() {
   done
 
   echo -e "\n=================================================================\n" 
-  echo -e "\n准备安装显卡驱动...\n" 
+  #echo -e "\n准备安装显卡驱动...\n" 
   sleep 2s
-  
+  echo -e "\n检测到显卡驱动已经安装，跳过此步骤！" 
   # 检测 rocm-smi 命令输出
-  if rocm-smi | grep -q "Mhz"; then 
-    echo -e "\n检测到显卡驱动已经安装，跳过此步骤！" 
-    sleep 2s
-  else
-    /usr/lib/ksd-launcher/data/graphic_setup.sh
-  fi 
+  # if rocm-smi | grep -q "Mhz"; then 
+  #   echo -e "\n检测到显卡驱动已经安装，跳过此步骤！" 
+  #   sleep 2s
+  # else
+  #   /usr/lib/ksd-launcher/data/graphic_setup.sh
+  # fi 
 
   # 判断docker是否安装成功
   if [[ $(which docker) && $(docker --version) ]]; then
@@ -278,7 +278,6 @@ onekey_setup() {
     echo -e "\n未检测到docker，准备安装..."
     /usr/lib/ksd-launcher/data/docker_setup.sh
   fi
-
 
   echo -e "\n准备安装stable-diffusion-webui... ..."
   sleep 3s
