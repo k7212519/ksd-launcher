@@ -1,7 +1,7 @@
 # AMD Stable-Diffusion-Webui-Launcher for Ubuntu(GNOME) 
 适用于`AMD`显卡在`Ubuntu`下一键部署`webui` 
 
-视频教程：  
+视频教程：https://www.bilibili.com/video/BV1jm4y1U7CQ
 
 项目地址：https://github.com/k7212519/ksd-launcher
 
