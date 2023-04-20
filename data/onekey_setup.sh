@@ -65,6 +65,9 @@ reset_sd() {
     fi
   fi
 
+  echo -e "\ndcoker容器启动中，请勿关闭另一个窗口...！"
+  sleep 3s
+
   # Check if GNOME
   if [ "$(pidof gnome-shell)" ]; then
     gnome-terminal -- docker run -it --network=host --device=/dev/kfd --device=/dev/dri --group-add=video --ipc=host --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --name=stable-diffusion -v $HOME/dockerx:/dockerx $1
@@ -77,7 +80,6 @@ reset_sd() {
     sudo apt install tmux
     tmux new-session -d -s my-session "docker run -it --network=host --device=/dev/kfd --device=/dev/dri --group-add=video --ipc=host --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --name=stable-diffusion -v $HOME/dockerx:/dockerx $1"
   fi
-
   sleep 5s
   
   # 等待容器启动
@@ -85,8 +87,6 @@ reset_sd() {
     echo -e "\n请等待docker容器启动......"
     sleep 3
   done
-  echo -e "\ndcoker容器启动中，请勿关闭另一个窗口...！"
-  sleep 3s
 
   echo -e "\n正在释放文件，请稍等..."
  
