@@ -1,5 +1,4 @@
 # AMD Stable-Diffusion-Webui-Launcher for Ubuntu(GNOME)  
-
 目前支持`rx7900` `rx6000` `rx5000` `vega` `rx500` 
 
 适用于`AMD`显卡在`Ubuntu`下图形化一键部署`stable-diffusion-webui` 
@@ -11,6 +10,9 @@
 镜像下载地址：https://cloud.189.cn/t/FfeEzybQNfYj (访问码：`5cp6`) 
 
 `DockerHub`仓库： https://hub.docker.com/r/k7212519/stable-diffusion-webui/tags 
+
+![image](https://github.com/k7212519/ksd-launcher/blob/master/images/images/screenshot.png) 
+
 
 ## 说明 
 支持`rx7900` `rx6000` `rx5000` `vega` `rx500` 
