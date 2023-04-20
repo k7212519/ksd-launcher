@@ -3,7 +3,6 @@
 write_start_command() {
   sudo sed -i 's/docker exec.*//' /usr/lib/ksd-launcher/data/sd.sh
   COMMAND_ARG='docker exec -it stable-diffusion bash -c '
-
   active_env="cd /dockerx/stable-diffusion-webui && source venv/bin/activate && "
   start='python launch.py '
   args=' '
@@ -15,12 +14,16 @@ write_start_command() {
   elif [ $1 -eq 3 ]; then  
     active_env="cd /dockerx/stable-diffusion-webui && source /root/miniconda3/etc/profile.d/conda.sh && conda activate webui-py38-rocm && "
     pre_args=' $proxy_command HSA_OVERRIDE_GFX_VERSION=10.3.0 '
-    args='--precision full --no-half'
+    args='--precision full --no-half --disable-safe-unpickle'
   elif [ $1 -eq 4 ]; then  
     pre_args='$proxy_command PYTORCH_ROCM_ARCH=gfx906 HCC_AMDGPU_TARGET=gfx906 '
     # args='--precision full --no-half'
+    args='--disable-safe-unpickle'
   elif [ $1 -eq 5 ]; then  
-    echo 'rx500暂未支持，请关注bilibili/k7212519更新或github仓库更新'
+    active_env='cd /dockerx/stable-diffusion-webui && sudo -E -u root bash -c '
+    pre_args=' $proxy_command HSA_OVERRIDE_GFX_VERSION=8.0.3 '
+    start='python3 launch.py '
+    args='--skip-torch-cuda-test --disable-safe-unpickle --opt-sub-quad-attention --medvram'
   elif [ $1 -eq 6 ]; then  
     start='python3 launch.py --disable-safe-unpickle'
     pre_args=' $proxy_command '
@@ -32,13 +35,16 @@ write_start_command() {
     echo -e "\n显存优化模式运行"
     args="$args --opt-sub-quad-attention --medvram "
   elif [ $2 -eq 3 ]; then  
-    echo -e "\n低显存模式运行"
-    args="$args --opt-sub-quad-attention --lowvram "
+    echo -e "\n显存优化模式运行"
+    args="$args --opt-sub-quad-attention --medvram "
   fi
 
-  COMMAND_ARG=$COMMAND_ARG'"'$active_env$pre_args$start$args'"'
+  if [ $1 -eq 5 ]; then
+    COMMAND_ARG=$COMMAND_ARG"'"$active_env'"'$pre_args$start$args'"'"'"
+  else
+    COMMAND_ARG=$COMMAND_ARG'"'$active_env$pre_args$start$args'"'
+  fi
   sudo echo $COMMAND_ARG >> /usr/lib/ksd-launcher/data/sd.sh
-  
 }
 
 
@@ -85,10 +91,20 @@ reset_sd() {
   echo -e "\n正在释放文件，请稍等..."
  
   # 启动子进程执行命令
-  docker exec -it stable-diffusion bash -c "cp -a /sd_backup/. /dockerx/ && exit"
+  docker exec -it stable-diffusion bash -c "sudo cp -a /sd_backup/. /dockerx/ && exit"
   
   # 最后输出命令执行完成
   sudo chmod -R 777 $HOME/dockerx
+
+  # if [ "$1" = "k7212519/stable-diffusion-webui:rx500" ]; then
+  #   docker exec -it stable-diffusion bash -c "git config --global --add safe.directory /dockerx/stable-diffusion-webui/repositories/stable-diffusion-stability-ai \
+  #    && git config --global --add safe.directory /dockerx/stable-diffusion-webui/repositories/BLIP \
+  #    && git config --global --add safe.directory /dockerx/stable-diffusion-webui/repositories/CodeFormer \
+  #    && git config --global --add safe.directory /dockerx/stable-diffusion-webui/repositories/k-diffusion \
+  #    && git config --global --add safe.directory /dockerx/stable-diffusion-webui/repositories/taming-transformers "
+  # fi
+  
+
   # 写入启动参数
   write_start_command $gpu_choice $vram_choice
   
