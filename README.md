@@ -18,7 +18,7 @@
 # AMD Stable-Diffusion-Webui-Launcher for Ubuntu(GNOME)  
 supports `rx7900` `rx6000` `rx5000` `vega` `rx500` 
 
-Suitable for 'AMD' graphics card deployment in `Ubuntu` next click `webui`  
+Suitable for 'AMD' graphics card oneclick deploy `stable-diffusion-webui` in `Ubuntu` 
 
 Video tutorial: https://www.bilibili.com/video/BV1jm4y1U7CQ  
 
