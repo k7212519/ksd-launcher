@@ -10,8 +10,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>645</width>
-    <height>499</height>
+    <width>666</width>
+    <height>473</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -1403,6 +1403,9 @@ Button */
                    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#ff79c6;&quot;&gt;PyDracula&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;An interface created using Python and PySide (support for PyQt), and with colors based on the Dracula theme created by Zeno Rocha.&lt;/span&gt;&lt;/p&gt;
@@ -2030,6 +2033,19 @@ border: none;</string>
                           </widget>
                          </item>
                          <item>
+                          <widget class="QPushButton" name="btn_rollback">
+                           <property name="sizePolicy">
+                            <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+                             <horstretch>0</horstretch>
+                             <verstretch>0</verstretch>
+                            </sizepolicy>
+                           </property>
+                           <property name="text">
+                            <string>回退WebUI历史版本</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
                           <widget class="QPushButton" name="btn_update_sd">
                            <property name="sizePolicy">
                             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
@@ -2102,7 +2118,7 @@ border: none;</string>
                               </colorrole>
                               <colorrole role="PlaceholderText">
                                <brush brushstyle="SolidPattern">
-                                <color alpha="255">
+                                <color alpha="128">
                                  <red>221</red>
                                  <green>221</green>
                                  <blue>221</blue>
@@ -2167,7 +2183,7 @@ border: none;</string>
                               </colorrole>
                               <colorrole role="PlaceholderText">
                                <brush brushstyle="SolidPattern">
-                                <color alpha="255">
+                                <color alpha="128">
                                  <red>221</red>
                                  <green>221</green>
                                  <blue>221</blue>
@@ -2232,7 +2248,7 @@ border: none;</string>
                               </colorrole>
                               <colorrole role="PlaceholderText">
                                <brush brushstyle="SolidPattern">
-                                <color alpha="255">
+                                <color alpha="128">
                                  <red>221</red>
                                  <green>221</green>
                                  <blue>221</blue>
@@ -2248,6 +2264,19 @@ border: none;</string>
                           </widget>
                          </item>
                         </layout>
+                       </item>
+                       <item>
+                        <spacer name="verticalSpacer_6">
+                         <property name="orientation">
+                          <enum>Qt::Vertical</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>20</width>
+                           <height>40</height>
+                          </size>
+                         </property>
+                        </spacer>
                        </item>
                        <item>
                         <widget class="QLabel" name="label">
@@ -2310,7 +2339,7 @@ border: none;</string>
                             </colorrole>
                             <colorrole role="PlaceholderText">
                              <brush brushstyle="SolidPattern">
-                              <color alpha="255">
+                              <color alpha="128">
                                <red>221</red>
                                <green>221</green>
                                <blue>221</blue>
@@ -2375,7 +2404,7 @@ border: none;</string>
                             </colorrole>
                             <colorrole role="PlaceholderText">
                              <brush brushstyle="SolidPattern">
-                              <color alpha="255">
+                              <color alpha="128">
                                <red>221</red>
                                <green>221</green>
                                <blue>221</blue>
@@ -2440,7 +2469,7 @@ border: none;</string>
                             </colorrole>
                             <colorrole role="PlaceholderText">
                              <brush brushstyle="SolidPattern">
-                              <color alpha="255">
+                              <color alpha="128">
                                <red>221</red>
                                <green>221</green>
                                <blue>221</blue>
@@ -2459,7 +2488,7 @@ border: none;</string>
                           </font>
                          </property>
                          <property name="text">
-                          <string>不保证最新版本可用，如更新后无法运行，请使用一键还原功能</string>
+                          <string>如果更新后无法运行，请使用一键还原功能</string>
                          </property>
                          <property name="textFormat">
                           <enum>Qt::PlainText</enum>
@@ -2549,9 +2578,12 @@ border: none;</string>
                           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;KSD Launcher &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;version  1.1&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;version  1.2.1&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;QQ群：240336881&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                          </property>
                         </widget>
@@ -3075,7 +3107,7 @@ p, li { white-space: pre-wrap; }
                                </colorrole>
                                <colorrole role="PlaceholderText">
                                 <brush brushstyle="SolidPattern">
-                                 <color alpha="255">
+                                 <color alpha="128">
                                   <red>221</red>
                                   <green>221</green>
                                   <blue>221</blue>
@@ -3140,7 +3172,7 @@ p, li { white-space: pre-wrap; }
                                </colorrole>
                                <colorrole role="PlaceholderText">
                                 <brush brushstyle="SolidPattern">
-                                 <color alpha="255">
+                                 <color alpha="128">
                                   <red>221</red>
                                   <green>221</green>
                                   <blue>221</blue>
@@ -3205,7 +3237,7 @@ p, li { white-space: pre-wrap; }
                                </colorrole>
                                <colorrole role="PlaceholderText">
                                 <brush brushstyle="SolidPattern">
-                                 <color alpha="255">
+                                 <color alpha="128">
                                   <red>221</red>
                                   <green>221</green>
                                   <blue>221</blue>
@@ -3424,6 +3456,31 @@ p, li { white-space: pre-wrap; }
                             </widget>
                            </item>
                            <item>
+                            <widget class="QPushButton" name="btn_enable_swap">
+                             <property name="sizePolicy">
+                              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                               <horstretch>0</horstretch>
+                               <verstretch>0</verstretch>
+                              </sizepolicy>
+                             </property>
+                             <property name="minimumSize">
+                              <size>
+                               <width>0</width>
+                               <height>80</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>16777215</width>
+                               <height>80</height>
+                              </size>
+                             </property>
+                             <property name="text">
+                              <string>交换内存(跑图死机使用)</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
                             <widget class="QPushButton" name="btn_start_fix">
                              <property name="maximumSize">
                               <size>
@@ -3447,7 +3504,7 @@ p, li { white-space: pre-wrap; }
                             </size>
                            </property>
                            <property name="text">
-                            <string>一键还原 Stable-Diffusion-Webui 到初始状态</string>
+                            <string>一键还原 Stable-Diffusion-Webui </string>
                            </property>
                           </widget>
                          </item>

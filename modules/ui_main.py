@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainOyuvaK.ui'
+## Form generated from reading UI file 'mainEWOuCF.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.2.4
+## Created by: Qt User Interface Compiler version 6.5.0
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -29,7 +29,7 @@ class Ui_MainWindow(object):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.setEnabled(True)
-        MainWindow.resize(645, 499)
+        MainWindow.resize(666, 473)
         sizePolicy = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -1133,13 +1133,23 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_14.addWidget(self.btn_install_git)
 
-        self.btn_update_sd = QPushButton(self.page_update)
-        self.btn_update_sd.setObjectName(u"btn_update_sd")
-        sizePolicy5 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Preferred)
+        self.btn_rollback = QPushButton(self.page_update)
+        self.btn_rollback.setObjectName(u"btn_rollback")
+        sizePolicy5 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Expanding)
         sizePolicy5.setHorizontalStretch(0)
         sizePolicy5.setVerticalStretch(0)
-        sizePolicy5.setHeightForWidth(self.btn_update_sd.sizePolicy().hasHeightForWidth())
-        self.btn_update_sd.setSizePolicy(sizePolicy5)
+        sizePolicy5.setHeightForWidth(self.btn_rollback.sizePolicy().hasHeightForWidth())
+        self.btn_rollback.setSizePolicy(sizePolicy5)
+
+        self.horizontalLayout_14.addWidget(self.btn_rollback)
+
+        self.btn_update_sd = QPushButton(self.page_update)
+        self.btn_update_sd.setObjectName(u"btn_update_sd")
+        sizePolicy6 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Preferred)
+        sizePolicy6.setHorizontalStretch(0)
+        sizePolicy6.setVerticalStretch(0)
+        sizePolicy6.setHeightForWidth(self.btn_update_sd.sizePolicy().hasHeightForWidth())
+        self.btn_update_sd.setSizePolicy(sizePolicy6)
         self.btn_update_sd.setMinimumSize(QSize(0, 50))
         palette = QPalette()
         brush = QBrush(QColor(221, 221, 221, 255))
@@ -1152,8 +1162,10 @@ class Ui_MainWindow(object):
         palette.setBrush(QPalette.Active, QPalette.ButtonText, brush)
         palette.setBrush(QPalette.Active, QPalette.Base, brush1)
         palette.setBrush(QPalette.Active, QPalette.Window, brush1)
+        brush2 = QBrush(QColor(221, 221, 221, 128))
+        brush2.setStyle(Qt.SolidPattern)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette.setBrush(QPalette.Active, QPalette.PlaceholderText, brush)
+        palette.setBrush(QPalette.Active, QPalette.PlaceholderText, brush2)
 #endif
         palette.setBrush(QPalette.Inactive, QPalette.WindowText, brush)
         palette.setBrush(QPalette.Inactive, QPalette.Button, brush1)
@@ -1162,7 +1174,7 @@ class Ui_MainWindow(object):
         palette.setBrush(QPalette.Inactive, QPalette.Base, brush1)
         palette.setBrush(QPalette.Inactive, QPalette.Window, brush1)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette.setBrush(QPalette.Inactive, QPalette.PlaceholderText, brush)
+        palette.setBrush(QPalette.Inactive, QPalette.PlaceholderText, brush2)
 #endif
         palette.setBrush(QPalette.Disabled, QPalette.WindowText, brush)
         palette.setBrush(QPalette.Disabled, QPalette.Button, brush1)
@@ -1171,7 +1183,7 @@ class Ui_MainWindow(object):
         palette.setBrush(QPalette.Disabled, QPalette.Base, brush1)
         palette.setBrush(QPalette.Disabled, QPalette.Window, brush1)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush)
+        palette.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush2)
 #endif
         self.btn_update_sd.setPalette(palette)
 
@@ -1179,6 +1191,10 @@ class Ui_MainWindow(object):
 
 
         self.verticalLayout_28.addLayout(self.horizontalLayout_14)
+
+        self.verticalSpacer_6 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_28.addItem(self.verticalSpacer_6)
 
         self.label = QLabel(self.page_update)
         self.label.setObjectName(u"label")
@@ -1190,7 +1206,7 @@ class Ui_MainWindow(object):
         palette1.setBrush(QPalette.Active, QPalette.Base, brush1)
         palette1.setBrush(QPalette.Active, QPalette.Window, brush1)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette1.setBrush(QPalette.Active, QPalette.PlaceholderText, brush)
+        palette1.setBrush(QPalette.Active, QPalette.PlaceholderText, brush2)
 #endif
         palette1.setBrush(QPalette.Inactive, QPalette.WindowText, brush)
         palette1.setBrush(QPalette.Inactive, QPalette.Button, brush1)
@@ -1199,7 +1215,7 @@ class Ui_MainWindow(object):
         palette1.setBrush(QPalette.Inactive, QPalette.Base, brush1)
         palette1.setBrush(QPalette.Inactive, QPalette.Window, brush1)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette1.setBrush(QPalette.Inactive, QPalette.PlaceholderText, brush)
+        palette1.setBrush(QPalette.Inactive, QPalette.PlaceholderText, brush2)
 #endif
         palette1.setBrush(QPalette.Disabled, QPalette.WindowText, brush)
         palette1.setBrush(QPalette.Disabled, QPalette.Button, brush1)
@@ -1208,7 +1224,7 @@ class Ui_MainWindow(object):
         palette1.setBrush(QPalette.Disabled, QPalette.Base, brush1)
         palette1.setBrush(QPalette.Disabled, QPalette.Window, brush1)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette1.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush)
+        palette1.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush2)
 #endif
         self.label.setPalette(palette1)
         self.label.setFont(font)
@@ -1225,22 +1241,19 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
         self.btn_update_launch = QPushButton(self.page_update)
         self.btn_update_launch.setObjectName(u"btn_update_launch")
-        sizePolicy6 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
-        sizePolicy6.setHorizontalStretch(0)
-        sizePolicy6.setVerticalStretch(0)
-        sizePolicy6.setHeightForWidth(self.btn_update_launch.sizePolicy().hasHeightForWidth())
-        self.btn_update_launch.setSizePolicy(sizePolicy6)
+        sizePolicy7 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
+        sizePolicy7.setHorizontalStretch(0)
+        sizePolicy7.setVerticalStretch(0)
+        sizePolicy7.setHeightForWidth(self.btn_update_launch.sizePolicy().hasHeightForWidth())
+        self.btn_update_launch.setSizePolicy(sizePolicy7)
         self.btn_update_launch.setMinimumSize(QSize(0, 50))
 
         self.horizontalLayout_7.addWidget(self.btn_update_launch)
 
         self.btn_old_transfer = QPushButton(self.page_update)
         self.btn_old_transfer.setObjectName(u"btn_old_transfer")
-        sizePolicy7 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Expanding)
-        sizePolicy7.setHorizontalStretch(0)
-        sizePolicy7.setVerticalStretch(0)
-        sizePolicy7.setHeightForWidth(self.btn_old_transfer.sizePolicy().hasHeightForWidth())
-        self.btn_old_transfer.setSizePolicy(sizePolicy7)
+        sizePolicy5.setHeightForWidth(self.btn_old_transfer.sizePolicy().hasHeightForWidth())
+        self.btn_old_transfer.setSizePolicy(sizePolicy5)
 
         self.horizontalLayout_7.addWidget(self.btn_old_transfer)
 
@@ -1253,8 +1266,8 @@ class Ui_MainWindow(object):
 
         self.textBrowser = QTextBrowser(self.page_update)
         self.textBrowser.setObjectName(u"textBrowser")
-        sizePolicy5.setHeightForWidth(self.textBrowser.sizePolicy().hasHeightForWidth())
-        self.textBrowser.setSizePolicy(sizePolicy5)
+        sizePolicy6.setHeightForWidth(self.textBrowser.sizePolicy().hasHeightForWidth())
+        self.textBrowser.setSizePolicy(sizePolicy6)
         self.textBrowser.setMaximumSize(QSize(16777215, 100))
 
         self.verticalLayout_28.addWidget(self.textBrowser)
@@ -1544,34 +1557,34 @@ class Ui_MainWindow(object):
         palette2.setBrush(QPalette.Active, QPalette.Button, brush1)
         palette2.setBrush(QPalette.Active, QPalette.Text, brush)
         palette2.setBrush(QPalette.Active, QPalette.ButtonText, brush)
-        brush2 = QBrush(QColor(0, 0, 0, 255))
-        brush2.setStyle(Qt.NoBrush)
-        palette2.setBrush(QPalette.Active, QPalette.Base, brush2)
+        brush3 = QBrush(QColor(0, 0, 0, 255))
+        brush3.setStyle(Qt.NoBrush)
+        palette2.setBrush(QPalette.Active, QPalette.Base, brush3)
         palette2.setBrush(QPalette.Active, QPalette.Window, brush1)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette2.setBrush(QPalette.Active, QPalette.PlaceholderText, brush)
+        palette2.setBrush(QPalette.Active, QPalette.PlaceholderText, brush2)
 #endif
         palette2.setBrush(QPalette.Inactive, QPalette.WindowText, brush)
         palette2.setBrush(QPalette.Inactive, QPalette.Button, brush1)
         palette2.setBrush(QPalette.Inactive, QPalette.Text, brush)
         palette2.setBrush(QPalette.Inactive, QPalette.ButtonText, brush)
-        brush3 = QBrush(QColor(0, 0, 0, 255))
-        brush3.setStyle(Qt.NoBrush)
-        palette2.setBrush(QPalette.Inactive, QPalette.Base, brush3)
+        brush4 = QBrush(QColor(0, 0, 0, 255))
+        brush4.setStyle(Qt.NoBrush)
+        palette2.setBrush(QPalette.Inactive, QPalette.Base, brush4)
         palette2.setBrush(QPalette.Inactive, QPalette.Window, brush1)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette2.setBrush(QPalette.Inactive, QPalette.PlaceholderText, brush)
+        palette2.setBrush(QPalette.Inactive, QPalette.PlaceholderText, brush2)
 #endif
         palette2.setBrush(QPalette.Disabled, QPalette.WindowText, brush)
         palette2.setBrush(QPalette.Disabled, QPalette.Button, brush1)
         palette2.setBrush(QPalette.Disabled, QPalette.Text, brush)
         palette2.setBrush(QPalette.Disabled, QPalette.ButtonText, brush)
-        brush4 = QBrush(QColor(0, 0, 0, 255))
-        brush4.setStyle(Qt.NoBrush)
-        palette2.setBrush(QPalette.Disabled, QPalette.Base, brush4)
+        brush5 = QBrush(QColor(0, 0, 0, 255))
+        brush5.setStyle(Qt.NoBrush)
+        palette2.setBrush(QPalette.Disabled, QPalette.Base, brush5)
         palette2.setBrush(QPalette.Disabled, QPalette.Window, brush1)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette2.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush)
+        palette2.setBrush(QPalette.Disabled, QPalette.PlaceholderText, brush2)
 #endif
         self.tableWidget.setPalette(palette2)
         self.tableWidget.setFrameShape(QFrame.NoFrame)
@@ -1608,11 +1621,23 @@ class Ui_MainWindow(object):
         self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
         self.btn_graphic_install = QPushButton(self.page_manage)
         self.btn_graphic_install.setObjectName(u"btn_graphic_install")
-        sizePolicy5.setHeightForWidth(self.btn_graphic_install.sizePolicy().hasHeightForWidth())
-        self.btn_graphic_install.setSizePolicy(sizePolicy5)
+        sizePolicy6.setHeightForWidth(self.btn_graphic_install.sizePolicy().hasHeightForWidth())
+        self.btn_graphic_install.setSizePolicy(sizePolicy6)
         self.btn_graphic_install.setMaximumSize(QSize(16777215, 80))
 
         self.horizontalLayout_13.addWidget(self.btn_graphic_install)
+
+        self.btn_enable_swap = QPushButton(self.page_manage)
+        self.btn_enable_swap.setObjectName(u"btn_enable_swap")
+        sizePolicy9 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
+        sizePolicy9.setHorizontalStretch(0)
+        sizePolicy9.setVerticalStretch(0)
+        sizePolicy9.setHeightForWidth(self.btn_enable_swap.sizePolicy().hasHeightForWidth())
+        self.btn_enable_swap.setSizePolicy(sizePolicy9)
+        self.btn_enable_swap.setMinimumSize(QSize(0, 80))
+        self.btn_enable_swap.setMaximumSize(QSize(16777215, 80))
+
+        self.horizontalLayout_13.addWidget(self.btn_enable_swap)
 
         self.btn_start_fix = QPushButton(self.page_manage)
         self.btn_start_fix.setObjectName(u"btn_start_fix")
@@ -1647,11 +1672,11 @@ class Ui_MainWindow(object):
         self.verticalLayout_24.setObjectName(u"verticalLayout_24")
         self.label_auto_launcher_browser = QLabel(self.page_manage)
         self.label_auto_launcher_browser.setObjectName(u"label_auto_launcher_browser")
-        sizePolicy9 = QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Preferred)
-        sizePolicy9.setHorizontalStretch(0)
-        sizePolicy9.setVerticalStretch(0)
-        sizePolicy9.setHeightForWidth(self.label_auto_launcher_browser.sizePolicy().hasHeightForWidth())
-        self.label_auto_launcher_browser.setSizePolicy(sizePolicy9)
+        sizePolicy10 = QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Preferred)
+        sizePolicy10.setHorizontalStretch(0)
+        sizePolicy10.setVerticalStretch(0)
+        sizePolicy10.setHeightForWidth(self.label_auto_launcher_browser.sizePolicy().hasHeightForWidth())
+        self.label_auto_launcher_browser.setSizePolicy(sizePolicy10)
         self.label_auto_launcher_browser.setMinimumSize(QSize(0, 0))
         self.label_auto_launcher_browser.setMaximumSize(QSize(16777215, 50))
         self.label_auto_launcher_browser.setLayoutDirection(Qt.LeftToRight)
@@ -1663,11 +1688,11 @@ class Ui_MainWindow(object):
         self.c_box_launcher_browser.addItem("")
         self.c_box_launcher_browser.addItem("")
         self.c_box_launcher_browser.setObjectName(u"c_box_launcher_browser")
-        sizePolicy10 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Minimum)
-        sizePolicy10.setHorizontalStretch(0)
-        sizePolicy10.setVerticalStretch(0)
-        sizePolicy10.setHeightForWidth(self.c_box_launcher_browser.sizePolicy().hasHeightForWidth())
-        self.c_box_launcher_browser.setSizePolicy(sizePolicy10)
+        sizePolicy11 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Minimum)
+        sizePolicy11.setHorizontalStretch(0)
+        sizePolicy11.setVerticalStretch(0)
+        sizePolicy11.setHeightForWidth(self.c_box_launcher_browser.sizePolicy().hasHeightForWidth())
+        self.c_box_launcher_browser.setSizePolicy(sizePolicy11)
         self.c_box_launcher_browser.setMinimumSize(QSize(80, 0))
         self.c_box_launcher_browser.setFont(font)
         self.c_box_launcher_browser.setLayoutDirection(Qt.LeftToRight)
@@ -1856,17 +1881,20 @@ class Ui_MainWindow(object):
         self.textEdit.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
 "</style></head><body style=\" font-family:'Segoe UI'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ff79c6;\">PyDracula</span></p>\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#ffffff;\">An interface created using Python and PySide (support for PyQt), and with colors based on the Dracula theme created by Zeno Rocha.</span></p>\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-inde"
-                        "nt:0; text-indent:0px;\"><span style=\" color:#ffffff;\">MIT License</span></p>\n"
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#ffffff;\">An interface created using Python and PySide (support for PyQt), and with colors based on the Dracula theme created by Zen"
+                        "o Rocha.</span></p>\n"
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#ffffff;\">MIT License</span></p>\n"
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#bd93f9;\">Created by: Wanderson M. Pimenta</span></p>\n"
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ff79c6;\">Convert UI</span></p>\n"
 "<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; color:#ffffff;\">pyside6-uic main.ui &gt; ui_main.py</span></p>\n"
-"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ff79c6;\">Convert QRC</span></p>\n"
-"<p align=\"center\" "
-                        "style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; color:#ffffff;\">pyside6-rcc resources.qrc -o resources_rc.py</span></p></body></html>", None))
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-in"
+                        "dent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600; color:#ff79c6;\">Convert QRC</span></p>\n"
+"<p align=\"center\" style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt; color:#ffffff;\">pyside6-rcc resources.qrc -o resources_rc.py</span></p></body></html>", None))
         self.titleRightInfo.setText(QCoreApplication.translate("MainWindow", u"KSDL stable-diffusion-webui Launcher", None))
 #if QT_CONFIG(tooltip)
         self.settingsTopBtn.setToolTip(QCoreApplication.translate("MainWindow", u"Settings", None))
@@ -1888,16 +1916,20 @@ class Ui_MainWindow(object):
         self.btn_output_manage.setText(QCoreApplication.translate("MainWindow", u"\u8f93\u51fa\u76ee\u5f55", None))
         self.btn_start_args.setText(QCoreApplication.translate("MainWindow", u"\u542f\u52a8\u53c2\u6570", None))
         self.btn_install_git.setText(QCoreApplication.translate("MainWindow", u"\u5b89\u88c5Git(\u66f4\u65b0\u529f\u80fd\u9700\u8981\u6b64\u8f6f\u4ef6)", None))
+        self.btn_rollback.setText(QCoreApplication.translate("MainWindow", u"\u56de\u9000WebUI\u5386\u53f2\u7248\u672c", None))
         self.btn_update_sd.setText(QCoreApplication.translate("MainWindow", u"\u4e00\u952e\u66f4\u65b0stable-diffusion-webui", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"\u4e0d\u4fdd\u8bc1\u6700\u65b0\u7248\u672c\u53ef\u7528\uff0c\u5982\u66f4\u65b0\u540e\u65e0\u6cd5\u8fd0\u884c\uff0c\u8bf7\u4f7f\u7528\u4e00\u952e\u8fd8\u539f\u529f\u80fd", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"\u5982\u679c\u66f4\u65b0\u540e\u65e0\u6cd5\u8fd0\u884c\uff0c\u8bf7\u4f7f\u7528\u4e00\u952e\u8fd8\u539f\u529f\u80fd", None))
         self.btn_update_launch.setText(QCoreApplication.translate("MainWindow", u"\u66f4\u65b0\u542f\u52a8\u5668", None))
         self.btn_old_transfer.setText(QCoreApplication.translate("MainWindow", u"\u65e7\u7248\u811a\u672c\u7528\u6237\u8fc1\u79fb", None))
         self.textBrowser.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
 "</style></head><body style=\" font-family:'Segoe UI'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:700;\">KSD Launcher </span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">version  1.1</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">version  1.2.1</p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">QQ\u7fa4\uff1a240336881</p></body></html>", None))
         self.labelBoxBlenderInstalation.setText(QCoreApplication.translate("MainWindow", u"FILE BOX", None))
         self.lineEdit.setText("")
@@ -1966,8 +1998,9 @@ class Ui_MainWindow(object):
         self.tableWidget.setSortingEnabled(__sortingEnabled)
 
         self.btn_graphic_install.setText(QCoreApplication.translate("MainWindow", u"\u663e\u5361\u5b8c\u6574\u9a71\u52a8\u5b89\u88c5", None))
+        self.btn_enable_swap.setText(QCoreApplication.translate("MainWindow", u"\u4ea4\u6362\u5185\u5b58(\u8dd1\u56fe\u6b7b\u673a\u4f7f\u7528)", None))
         self.btn_start_fix.setText(QCoreApplication.translate("MainWindow", u"sd.sh\u542f\u52a8\u9879\u4fee\u590d", None))
-        self.btn_onekey_restore.setText(QCoreApplication.translate("MainWindow", u"\u4e00\u952e\u8fd8\u539f Stable-Diffusion-Webui \u5230\u521d\u59cb\u72b6\u6001", None))
+        self.btn_onekey_restore.setText(QCoreApplication.translate("MainWindow", u"\u4e00\u952e\u8fd8\u539f Stable-Diffusion-Webui ", None))
         self.btn_proxy_set.setText(QCoreApplication.translate("MainWindow", u"\u4ee3\u7406\u8bbe\u7f6e", None))
         self.btn_permission_repair.setText(QCoreApplication.translate("MainWindow", u"\u6743\u9650\u4fee\u590d", None))
         self.label_auto_launcher_browser.setText(QCoreApplication.translate("MainWindow", u"\u81ea\u52a8\u8bbf\u95ee\u9875\u9762", None))

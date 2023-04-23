@@ -86,19 +86,19 @@ class MainWindow(QMainWindow):
         widgets.btn_onekey_restore.clicked.connect(self.buttonClick)
         widgets.btn_proxy_set.clicked.connect(self.buttonClick)
         widgets.btn_permission_repair.clicked.connect(self.buttonClick)
+        widgets.btn_enable_swap.clicked.connect(self.enableSwap)
+
 
         #page update
         widgets.btn_update_sd.clicked.connect(self.buttonClick)
         widgets.btn_update_launch.clicked.connect(self.buttonClick)
         widgets.btn_install_git.clicked.connect(self.buttonClick)
         widgets.btn_old_transfer.clicked.connect(self.buttonClick)
+        widgets.btn_rollback.clicked.connect(self.rollbackVersion)
 
 
         #other widget
         widgets.c_box_launcher_browser.currentIndexChanged[int].connect(self.start_browser_config)
-
-
-
 
 
 
@@ -188,7 +188,7 @@ class MainWindow(QMainWindow):
             subprocess.run(['gnome-terminal', '-x', '/bin/bash', '-c', '/usr/lib/ksd-launcher/data/sd.sh'])
             autoLaunch = config['CONF']['auto_launch']
             if autoLaunch == "true":
-                thread = threading.Thread(target=lambda: (time.sleep(8), webbrowser.open('http://127.0.0.1:7860/')))
+                thread = threading.Thread(target=lambda: (time.sleep(12), webbrowser.open('http://127.0.0.1:7860/')))
                 thread.start()
 
         elif btnName == "btn_stop_container":
@@ -301,6 +301,17 @@ class MainWindow(QMainWindow):
 
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')
+
+
+    def rollbackVersion(self):
+        env = os.environ.copy()
+        env['PATH'] = '/usr/local/bin:' + env['PATH'] # 修改PATH变量
+        subprocess.run(['gnome-terminal', '-x', '/bin/bash', '-c', '/usr/lib/ksd-launcher/data/rollback_version.sh'])
+
+    def enableSwap(self):
+        env = os.environ.copy()
+        env['PATH'] = '/usr/local/bin:' + env['PATH'] # 修改PATH变量
+        subprocess.run(['gnome-terminal', '-x', '/bin/bash', '-c', '/usr/lib/ksd-launcher/data/update_launcher.sh'])
 
 
     # RESIZE EVENTS
