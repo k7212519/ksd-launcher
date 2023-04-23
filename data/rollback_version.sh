@@ -99,5 +99,5 @@ sudo rm -rf $HOME/dockerx/stable-diffusion-webui/repositories/stable-diffusion-s
 
 docker restart stable-diffusion
 # eval "$commands"
-docker exec -it stable-diffusion bash -c "cd /dockerx/stable-diffusion-webui && source venv/bin/activate && pip install --upgrade fastapi==0.90.1 && echo '降级完成，首次打开需要下载部分组件，请确保使用代理！ && read'"
+docker exec -it stable-diffusion bash -c "cd /dockerx/stable-diffusion-webui && source venv/bin/activate && pip install --upgrade fastapi==0.90.1 && echo '降级完成，首次打开需要下载部分组件，请确保使用代理！' && read "
 read
