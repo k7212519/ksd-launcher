@@ -18,7 +18,8 @@ if [[ "$proxy" == "true" ]]; then
     echo -e "通过代理地址更新...\n"
     export https_proxy="$address"
 else 
-    export https_proxy=http://379365m33j.qicp.vip:7213
+    read -p "请开启代理后再使用该功能，否则会导致无法正常回退和启动！！！"
+    exit
 fi
 
 ##########版本选择##########
@@ -75,7 +76,7 @@ fi
 # docker restart stable-diffusion
 
 sudo git -C $HOME/dockerx/stable-diffusion-webui reset --hard $version_hash
-echo -e "回退成功，正在初始化，请耐心等待，完成后请在网页底部查看commit-hash..."
+echo -e "回退成功，正在初始化，请耐心等待..."
 sudo git -C $HOME/dockerx/stable-diffusion-webui reset --hard
 
 sudo rm -rf $HOME/dockerx/stable-diffusion-webui/repositories/stable-diffusion-stability-ai
@@ -96,6 +97,7 @@ sudo rm -rf $HOME/dockerx/stable-diffusion-webui/repositories/stable-diffusion-s
 # sed -i.bak '/git_clone(blip_repo, repo_dir('"'"'BLIP'"'"'), "BLIP", blip_commit_hash)/s/^/#/' $HOME/dockerx/stable-diffusion-webui/launch.py
 
 # commands=$(grep "^docker exec.*$" /usr/lib/ksd-launcher/data/sd.sh | sed ':a;N;$!ba;s/\n/ /g')
+echo -e "首次启动请挂代理,需要下载部分组件，请耐心等待下载完成，启动后请在网页底部查看commit-hash观察版本信息..."
 
 docker restart stable-diffusion
 # eval "$commands"
