@@ -15,5 +15,3 @@ docker ps
 docker restart stable-diffusion
 
 # 运行参数加在下方命令最后的 " 前，记得 --参数 前加个空格
-
-docker exec -it stable-diffusion bash -c "cd /dockerx/stable-diffusion-webui && source venv/bin/activate && $proxy_command HSA_OVERRIDE_GFX_VERSION=10.3.0 python launch.py --opt-sub-quad-attention --medvram "

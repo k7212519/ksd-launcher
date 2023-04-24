@@ -311,7 +311,7 @@ class MainWindow(QMainWindow):
     def enableSwap(self):
         env = os.environ.copy()
         env['PATH'] = '/usr/local/bin:' + env['PATH'] # 修改PATH变量
-        subprocess.run(['gnome-terminal', '-x', '/bin/bash', '-c', '/usr/lib/ksd-launcher/data/update_launcher.sh'])
+        subprocess.run(['gnome-terminal', '-x', '/bin/bash', '-c', '/usr/lib/ksd-launcher/data/setup_swap.sh'])
 
 
     # RESIZE EVENTS

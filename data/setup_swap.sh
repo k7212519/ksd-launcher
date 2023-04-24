@@ -31,8 +31,8 @@ while [ "$valid_choice" == false ]
 done
 
 sleep 3s
-
 swapon -s
+sleep 2s
 
 if [ $swap_choice -eq 1 ]; then  
     sudo fallocate -l 16G /swapfile
@@ -43,7 +43,7 @@ elif [ $swap_choice -eq 3 ]; then
 fi
 
 
-sudo dd if=/dev/zero of=/swapfile bs=1024 count=2097152
+# sudo dd if=/dev/zero of=/swapfile bs=1024 count=2097152
 sudo chmod 600 /swapfile
 sudo mkswap /swapfile
 sudo swapon /swapfile
@@ -51,4 +51,5 @@ echo "/swapfile swap swap defaults 0 0" | sudo tee -a /etc/fstab
 sudo swapon --show
 sudo free -h
 echo "/swapfile swap swap defaults 0 0" | sudo tee -a /etc/sysctl.conf
-echo -e "虚拟swap内存已启用"
+echo -e "虚拟swap内存已启用,请在 系统监视器 中查看交换空间容量"
+read 
