@@ -42,7 +42,14 @@ elif [ $swap_choice -eq 3 ]; then
     sudo fallocate -l 64G /swapfile
 fi
 
+echo -e "正在删除原有swap分区..."
+sudo swapoff -v /swapfile
+sudo rm /swapfile
+sleep 3s
+echo -e "\n删除成功！"
+sleep 3s
 
+echo -e "\n准备重建swap分区..."
 # sudo dd if=/dev/zero of=/swapfile bs=1024 count=2097152
 sudo chmod 600 /swapfile
 sudo mkswap /swapfile
