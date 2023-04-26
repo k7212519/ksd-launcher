@@ -20,7 +20,7 @@
 # AMD Stable-Diffusion-Webui-Launcher for Ubuntu(GNOME)  
 supports `rx7900` `rx6000` `rx5000` `vega` `rx500` 
 
-Suitable for 'AMD' graphics card oneclick deploy `stable-diffusion-webui` in `Ubuntu` 
+Suitable for `AMD` graphics card oneclick deploy `stable-diffusion-webui` in `Ubuntu` 
 
 Video tutorial: https://www.bilibili.com/video/BV1jm4y1U7CQ  
 
@@ -28,4 +28,4 @@ Project address: https://github.com/k7212519/ksd-launcher
 
 Image download address: https://cloud.189.cn/t/FfeEzybQNfYj (Access code: '5cp6')  
 
-`DockerHub 'Warehouse: https://hub.docker.com/r/k7212519/stable-diffusion-webui/tags   
+`DockerHub`Warehouse: https://hub.docker.com/r/k7212519/stable-diffusion-webui/tags   
