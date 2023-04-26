@@ -10,17 +10,17 @@ while [ "$valid_choice" == false ]
       read -p "请输入选项编号： " choice
       case $choice in
       1)
-        echo "正在创建16G虚拟内存"
+        echo "已选择16G虚拟内存"
         valid_choice=true
         swap_choice=1
         ;;
       2)
-        echo "正在创建32G虚拟内存"
+        echo "已选择32G虚拟内存"
         valid_choice=true
         swap_choice=2
         ;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
       3)
-        echo "正在创建64G虚拟内存"
+        echo "已选择64G虚拟内存"
         valid_choice=true
         swap_choice=3
         ;;
@@ -35,11 +35,12 @@ sudo swapoff -v /swapfile
 sudo rm /swapfile
 sleep 3s
 echo -e "\n删除成功！"
-sleep 3s
 
 sleep 3s
 swapon -s
 sleep 2s
+
+echo -e "\n准备重建swap分区..."
 
 if [ $swap_choice -eq 1 ]; then  
     sudo fallocate -l 16G /swapfile
@@ -49,9 +50,6 @@ elif [ $swap_choice -eq 3 ]; then
     sudo fallocate -l 64G /swapfile
 fi
 
-
-
-echo -e "\n准备重建swap分区..."
 # sudo dd if=/dev/zero of=/swapfile bs=1024 count=2097152
 sudo chmod 600 /swapfile
 sudo mkswap /swapfile
