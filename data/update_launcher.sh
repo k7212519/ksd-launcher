@@ -27,6 +27,8 @@ sudo rm /usr/lib/sd.sh
 
 sudo cp -f /usr/lib/ksd-launcher/data/stable-diffusion.desktop /usr/share/applications/
 sudo chmod -R 777 /usr/lib/ksd-launcher
+sudo chmod +x /usr/lib/ksd-launcher/data/*.sh
+
 
 echo "更新完成，请重启KSD Launcher..."
 read
