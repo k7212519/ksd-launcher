@@ -15,3 +15,4 @@ docker ps
 docker restart stable-diffusion
 
 # 运行参数加在下方命令最后的 " 前，记得 --参数 前加个空格
+docker exec -it stable-diffusion bash -c 'cd /dockerx/stable-diffusion-webui && sudo -E -u root bash -c " $proxy_command HSA_OVERRIDE_GFX_VERSION=8.0.3 python3 launch.py --skip-torch-cuda-test --disable-safe-unpickle --opt-sub-quad-attention --medvram --opt-sub-quad-attention --medvram "'

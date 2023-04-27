@@ -9,7 +9,7 @@ import time
 import webbrowser
 import threading
 import configparser
-
+import socket
 # pyside6-rcc resources.qrc -o resources_rc.py
 
 from PySide6.QtCore import Qt
@@ -188,9 +188,9 @@ class MainWindow(QMainWindow):
             subprocess.run(['gnome-terminal', '-x', '/bin/bash', '-c', '/usr/lib/ksd-launcher/data/sd.sh'])
             autoLaunch = config['CONF']['auto_launch']
             if autoLaunch == "true":
-                thread = threading.Thread(target=lambda: (time.sleep(12), webbrowser.open('http://127.0.0.1:7860/')))
+                thread = threading.Thread(target=self.start_port)
                 thread.start()
-
+                
         elif btnName == "btn_stop_container":
             UIFunctions.resetStyle(self, btnName) 
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) 
@@ -413,8 +413,19 @@ class MainWindow(QMainWindow):
         with open('/usr/lib/ksd-launcher/data/config.ini', 'w') as f:
             config.write(f)
 
-
-
+    def start_port(self):
+        time.sleep(6)
+        while True:
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            result = s.connect_ex(('127.0.0.1', 7860))  # 测试连接
+            if result == 0:  # 连接成功，端口被占用
+                print("端口已检测到打开")
+                s.close()
+                webbrowser.open('http://127.0.0.1:7860/')  # 打开相应网页
+                break
+            else:
+                s.close()
+                time.sleep(1)  # 等待2秒后重新开始检测
 
 
 
