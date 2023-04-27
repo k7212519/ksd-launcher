@@ -185,7 +185,7 @@ class MainWindow(QMainWindow):
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
             #os.system('/usr/lib/ksd-launcher/data/sd.sh')
             # 一键启动
-            subprocess.run(['gnome-terminal', '-x', '/bin/bash', '-c', '/usr/lib/ksd-launcher/data/sd.sh'])
+            subprocess.run(['gnome-terminal', '-e', '/bin/bash -c "/usr/lib/ksd-launcher/data/sd.sh; read"'])
             autoLaunch = config['CONF']['auto_launch']
             if autoLaunch == "true":
                 thread = threading.Thread(target=self.start_port)
@@ -207,7 +207,7 @@ class MainWindow(QMainWindow):
             subprocess.run(['gnome-terminal', '-x', '/bin/bash', '-c', 'sudo chmod -R 777 /usr/lib/ksd-launcher && sudo find /usr/lib/ksd-launcher/data -type f -exec chmod +x {} && read '])
             # 在GNOME终端中启动脚本
             QMessageBox.information(self, "提示", "请在终端输入密码后，再点击Yes继续安装！", QMessageBox.Yes)
-            subprocess.run(['gnome-terminal', '-x', '/bin/bash', '-c', '/usr/lib/ksd-launcher/data/onekey_setup.sh'])
+            subprocess.run(['gnome-terminal', '-x', '/bin/bash', '-c', '/usr/lib/ksd-launcher/data/onekey_setup.sh; read'])
 
 
         elif btnName == "btn_root_file":
@@ -331,21 +331,6 @@ class MainWindow(QMainWindow):
             print('Mouse click: LEFT CLICK')
         if event.buttons() == Qt.RightButton:
             print('Mouse click: RIGHT CLICK')
-
-
-    # def mousePressEvent(self, event):        #鼠标左键按下时获取鼠标坐标
-    #     if event.button() == Qt.LeftButton:
-    #         self._move_drag = True
-    #         self.m_Position = event.globalPos() - self.pos()
-    #         event.accept()
-    # def mouseMoveEvent(self, QMouseEvent):    #鼠标在按下左键的情况下移动时,根据坐标移动界面
-    #     if Qt.LeftButton and self._move_drag:
-    #         self.move(QMouseEvent.globalPos() - self.m_Position)
-    #         QMouseEvent.accept()
-    
-    # def mouseReleaseEvent(self, QMouseEvent):    #鼠标按键释放时,取消移动
-    #     self._move_drag = False
-    
 
 
     # 停止容器
