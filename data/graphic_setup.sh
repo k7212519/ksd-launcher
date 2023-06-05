@@ -14,8 +14,8 @@ setup_vga_driver() {
   fi
 
   echo "准备安装显卡驱动......"
-  UBUNTU_20_URL="https://repo.radeon.com/amdgpu-install/5.4.3/ubuntu/focal/amdgpu-install_5.4.50403-1_all.deb"
-  UBUNTU_22_URL="https://repo.radeon.com/amdgpu-install/5.4.3/ubuntu/jammy/amdgpu-install_5.4.50403-1_all.deb"
+  UBUNTU_20_URL="https://repo.radeon.com/amdgpu-install/5.5/ubuntu/focal/amdgpu-install_5.5.50500-1_all.deb"
+  UBUNTU_22_URL="https://repo.radeon.com/amdgpu-install/5.5/ubuntu/jammy/amdgpu-install_5.5.50500-1_all.deb"
   sudo apt-get update
   echo -e "\n请选择你的系统版本："
   echo "1. Ubuntu 20 focal"
@@ -35,7 +35,7 @@ setup_vga_driver() {
   fi
   echo -e "正在下载并安装显卡驱动(晚上下载慢，白天好一些)...\n" 
   sleep 2s
-  sudo apt install $HOME/amdgpu-install_5.4.50403-1_all.deb
+  sudo apt install $HOME/amdgpu-install_5.5.50500-1_all.deb
   sudo apt-get update
   sudo amdgpu-install --usecase=graphics,rocm,hip --opencl=rocr
   sudo usermod -a -G render $LOGNAME
