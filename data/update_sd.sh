@@ -27,8 +27,8 @@ sudo git -C $HOME/dockerx/stable-diffusion-webui reset --hard origin/master
 # sudo git -C $HOME/dockerx/stable-diffusion-webui/repositories/BLIP reset --hard
 # sudo git -C $HOME/dockerx/stable-diffusion-webui/repositories/CodeFormer fetch --all
 # sudo git -C $HOME/dockerx/stable-diffusion-webui/repositories/CodeFormer reset --hard
-sudo git -C $HOME/dockerx/stable-diffusion-webui/repositories/k-diffusion fetch --all
-sudo git -C $HOME/dockerx/stable-diffusion-webui/repositories/k-diffusion reset --hard
+# sudo git -C $HOME/dockerx/stable-diffusion-webui/repositories/k-diffusion fetch --all
+# sudo git -C $HOME/dockerx/stable-diffusion-webui/repositories/k-diffusion reset --hard
 # sudo git -C $HOME/dockerx/stable-diffusion-webui/repositories/midas fetch --all
 # sudo git -C $HOME/dockerx/stable-diffusion-webui/repositories/midas reset --hard
 # sudo git -C $HOME/dockerx/stable-diffusion-webui/repositories/stable-diffusion-stability-ai fetch --all
