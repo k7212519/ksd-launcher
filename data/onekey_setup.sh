@@ -23,7 +23,7 @@ write_start_command() {
     active_env='cd /dockerx/stable-diffusion-webui && sudo -E -u root bash -c '
     pre_args=' $proxy_command HSA_OVERRIDE_GFX_VERSION=8.0.3 '
     start='python3 launch.py '
-    args='--skip-torch-cuda-test --disable-safe-unpickle --opt-sub-quad-attention --medvram'
+    args='--skip-torch-cuda-test --disable-safe-unpickle '
   elif [ $1 -eq 6 ]; then  
     start='python3 launch.py --disable-safe-unpickle'
     pre_args=' $proxy_command '
