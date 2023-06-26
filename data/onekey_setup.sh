@@ -211,7 +211,7 @@ setup_sd() {
     # If the Docker image doesn't exist, prompt the user to choose an action
     echo -e "\n未检测到 $WEBUI_DOCKER_NAME 镜像"
     echo "请选择以下操作："
-    echo "1. 从Docker Hub在线拉取"
+    echo "1. 从Docker Hub在线拉取(国内不稳定，请使用魔法上网)"
     echo "2. 从本地tar文件加载"
     read -p "请输入选项数字 [1/2]: " option
 
@@ -262,7 +262,7 @@ setup_sd() {
   echo -e "\n==============================================================\n"
 
   echo -e "\n恭喜你，安装完成！请关闭所有窗口后在菜单中启动软件，首次跑图需要编译一些文件，比较慢！请耐心等待！后续即可正常"
-  echo -e "\n如有问题可添加QQ群：240336881咨询大家"
+  echo -e "\n如有问题可添加QQ群： 240336881 咨询大家"
   read
   exit
 }
