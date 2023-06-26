@@ -3,6 +3,7 @@
 write_start_command() {
   sudo sed -i 's/docker exec.*//' /usr/lib/ksd-launcher/data/sd.sh
   COMMAND_ARG='docker exec -it stable-diffusion bash -c '
+  active_folder="cd /dockerx/stable-diffusion-webui && "
   active_env="cd /dockerx/stable-diffusion-webui && source venv/bin/activate && "
   start='python launch.py '
   args=' '
@@ -41,8 +42,10 @@ write_start_command() {
 
   if [ $1 -eq 5 ]; then
     COMMAND_ARG=$COMMAND_ARG"'"$active_env'"'$pre_args$start$args'"'"'"
-  else
+  else if [ $1 -eq 3 ]
     COMMAND_ARG=$COMMAND_ARG'"'$active_env$pre_args$start$args'"'
+  else 
+    COMMAND_ARG=$COMMAND_ARG'"'$active_folder$pre_args$start$args'"'
   fi
   sudo echo $COMMAND_ARG >> /usr/lib/ksd-launcher/data/sd.sh
 }
