@@ -42,7 +42,7 @@ write_start_command() {
 
   if [ $1 -eq 5 ]; then
     COMMAND_ARG=$COMMAND_ARG"'"$active_env'"'$pre_args$start$args'"'"'"
-  else if [ $1 -eq 3 ]
+  elif [ $1 -eq 3 ]
     COMMAND_ARG=$COMMAND_ARG'"'$active_env$pre_args$start$args'"'
   else 
     COMMAND_ARG=$COMMAND_ARG'"'$active_folder$pre_args$start$args'"'
