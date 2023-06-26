@@ -203,7 +203,7 @@ setup_sd() {
   elif [ $gpu_choice -eq 5 ]; then  
     WEBUI_DOCKER_NAME=k7212519/stable-diffusion-webui:rx500   #rx500
   elif [ $gpu_choice -eq 6 ]; then  
-    WEBUI_DOCKER_NAME=k7212519/stable-diffusion-webui:rx7000  #rx7000
+    WEBUI_DOCKER_NAME=k7212519/stable-diffusion-webui:latest  #rx7000
   fi
 
     # Check if the Docker image exists
