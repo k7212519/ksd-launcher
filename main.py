@@ -399,7 +399,7 @@ class MainWindow(QMainWindow):
             config.write(f)
 
     def start_port(self):
-        time.sleep(6)
+        time.sleep(8)
         while True:
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             result = s.connect_ex(('127.0.0.1', 7860))  # 测试连接
